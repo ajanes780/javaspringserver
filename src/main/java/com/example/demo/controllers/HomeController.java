@@ -57,10 +57,9 @@ public class HomeController {
     }
 
 
-    @RequestMapping("/page1")
-    @ResponseBody
+    @RequestMapping("/*")
     public String page1() {
-        return " <h1> Welcome to page 1 </h1>";
+        return "redirect:/hello";
     }
 
 
