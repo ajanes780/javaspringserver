@@ -16,6 +16,9 @@ public class HomeController {
     @ResponseBody
     public String index(HttpServletRequest request) {
         String name = request.getParameter("name");
+        if (name == null) {
+            name = "Jedi";
+        }
 
         return String.format(template, name.substring(0, 1).toUpperCase() + name.substring(1));
     }
