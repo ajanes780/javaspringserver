@@ -17,7 +17,7 @@ public class HomeController {
             "<form method='post'> " +
             "<input type='text' name='name' />" +
             "<input type='submit' value='Greet Me !'/>" +
-            "</form";
+            "</form>";
 
 
     @RequestMapping("/")

@@ -21,4 +21,18 @@ public class HttpRequestTest {
         assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/greeting",
                 String.class)).contains("He that breaks a thing to find out what it is, has left the path of wisdom, Aaron");
     }
+
+    @Test
+    public  void helloShouldReturAform()throws Exception{
+        assertThat(this.restTemplate.getForObject("http://localhost:"+ port + "/hello", String.class)).contains("" +
+                "<h1> Welcome to the server young Padawan</h1> " +
+                "<h3> What is your name</h3>" +
+                "<form method='post'> " +
+                "<input type='text' name='name' />" +
+                "<input type='submit' value='Greet Me !'/>" +
+                "</form>");
+
+
+
+    }
 }
