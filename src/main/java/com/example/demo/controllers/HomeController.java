@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Objects;
 
 @Controller
 public class HomeController {
 
-    private static final String template = "<h1> Welcome to the server young %s! </h1>";
+    private static final String template = "<h1> Welcome to the server young Padawan %s </h1>" +
+            " <a href='/hello'>  <button> Find out more</button>  </a>";
     private static final String templateForm = "<h1> Welcome to the server young Padawan</h1> " +
             "<h3> What is your name</h3>" +
             "<form method='post'> " +
@@ -25,7 +27,7 @@ public class HomeController {
     public String index(HttpServletRequest request) {
         String name = request.getParameter("name");
         if (name == null) {
-            name = "Padawan";
+            name = " \n Do you want to become a Jedi ?";
         }
 
         return String.format(template, name.substring(0, 1).toUpperCase() + name.substring(1));
@@ -42,7 +44,7 @@ public class HomeController {
     @ResponseBody()
     public String helloPost(HttpServletRequest request) {
         String name = request.getParameter("name");
-        if (name == "") {
+        if (Objects.equals(name, "")) {
             name = "Jedi";
 
         }
